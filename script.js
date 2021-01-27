@@ -1,31 +1,53 @@
 class Calculator {
-    constructor(previousOperandTextElement, lotQty) {
-      this.previousOperandTextElement = previousOperandTextElement
+    constructor(sampleDisplay, lotQty) {
+      this.sampleDisplay = sampleDisplay
       this.lotQty = lotQty
       this.clear()
     }
   
     clear() {
-      this.lotQty = ''
-      this.previousOperand = ''
+      this.lotSize = ''
+      this.sampleSize = ''
       this.operation = undefined
     }
   
     delete() {
-      this.lotQty = this.lotQty.toString().slice(0, -1)
+      this.lotSize = this.lotSize.toString().slice(0, -1)
     }
   
     appendNumber(number) { 
-      this.lotQty = this.lotQty.toString() + number.toString()
+      this.lotSize = this.lotSize.toString() + number.toString()
     }
   
-    chooseOperation(operation) {
-      
+    chooseAql(aql) {
+      if (this.sampleSize === '') return
+      if (this.lotSize !== '') {
+        this.compute()
+      }
+      this.aql = aql
+      this.sampleSize = this.lotSize
+      this.lotSize = ''
     }
   
     compute() {
-      
+      let computation
+      parseFloat(this.sampleSize)
+     // const lot = parseFloat(this.lotSize)
+     // if (isNaN(sample)||isNaN(lot)) return
+     switch (this.aql){
+     case 0.010:
+      if (this.sampleSize > 2 || this.sampleSize < 1200)
+          { //this.lotQty.innerText = 'all'
+          let samples = document.createElement(div);
+          samples.innerText = 'All'
+          lotQty.append('All');
+        };
+
     }
+    
+      
+      };
+    
   
     getDisplayNumber(number) {
       const stringNumber = number.toString()
@@ -46,10 +68,10 @@ class Calculator {
   
     updateDisplay() {
       this.lotQty.innerText =
-        this.getDisplayNumber(this.lotQty)
+      this.getDisplayNumber(this.lotSize)
       
     }
-  }
+  };
 
 
 
@@ -61,8 +83,9 @@ const allClearBtn = document.querySelector('.all-clear');
 const lotQty = document.querySelector('.user-input');
 const sampleDisplay = document.querySelector('.sample-size')
 const result = document.querySelector('.submit');
+const deleteBtn = document.querySelector('.delete');
 
-const calculator = new Calculator(lotQty)
+const calculator = new Calculator(lotQty, sampleDisplay)
 
 numberBtns.forEach(button => {
     button.addEventListener('click', () => {
@@ -71,11 +94,23 @@ numberBtns.forEach(button => {
     })
 })
 
+aqlSelector.addEventListener('change', select =>{
+  calculator.chooseAql(select.value)
+  calculator.updateDisplay()
+})
 
-
+deleteBtn.addEventListener('click', button => {
+  calculator.delete()
+  calculator.updateDisplay()
+})
 
 
 allClearBtn.addEventListener('click', button => {
-    calculator.delete()
+    calculator.clear()
+    calculator.updateDisplay()
+  })
+
+  result.addEventListener('click', button => {
+    calculator.compute()
     calculator.updateDisplay()
   })
