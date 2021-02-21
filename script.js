@@ -1,30 +1,30 @@
 class Calculator {
     constructor(sampleDisplay, lotQty) {
-      this.sampleDisplay = sampleDisplay
-      this.lotQty = lotQty
-      this.clear()
+        this.sampleDisplay = sampleDisplay
+        this.lotQty = lotQty
+        this.clear()
     }
-  
+
     clear() {
-      this.lotSize = ''
-      this.sampleSize = ''
-      lotQty.innerText = ''
-      this.operation = undefined
+        this.lotSize = ''
+        this.sampleSize = ''
+        lotQty.innerText = ''
+        this.operation = undefined
     }
-  
+
     delete() {
-      this.lotSize = this.lotSize.toString().slice(0, -1)
+        this.lotSize = this.lotSize.toString().slice(0, -1)
     }
-  
-    appendNumber(number) { 
-      this.lotSize = this.lotSize.toString() + number.toString()
+
+    appendNumber(number) {
+        this.lotSize = this.lotSize.toString() + number.toString()
     }
-  
-      updateDisplay() {
+
+    updateDisplay() {
         this.lotQty.innerText = this.lotSize
-        
-      }
-    };
+
+    }
+};
 
 
 const numberBtns = document.querySelectorAll('.number');
@@ -38,43 +38,41 @@ const deleteBtn = document.querySelector('.delete');
 const calculator = new Calculator(lotQty, sampleDisplay)
 
 numberBtns.forEach(button => {
-  button.addEventListener('click', () => {
-    calculator.appendNumber(button.innerText)
-    calculator.updateDisplay()
-  })
+    button.addEventListener('click', () => {
+        calculator.appendNumber(button.innerText)
+        calculator.updateDisplay()
+    })
 })
 
 
 deleteBtn.addEventListener('click', button => {
-calculator.delete()
-calculator.updateDisplay()
+    calculator.delete()
+    calculator.updateDisplay()
 })
 
 
 allClearBtn.addEventListener('click', button => {
-  calculator.clear()
-  calculator.updateDisplay()
+    calculator.clear()
+    calculator.updateDisplay()
 })
 
 result.addEventListener('click', button => {
-  lotQty.innerText = ''
-  const sample = parseInt(sampleDisplay.innerText)
-  console.log(isNaN(sampleDisplay.innerText))
-  console.log(aqlSelector.value)
-  console.log(lotQty.innerText)
-  if (aqlSelector.value == 0.010 && sample > 0 && sample <= 1200) {
-    lotQty.innerText = 'All'
-  } else if (aqlSelector.value == 0.010 && sample >= 1201) {
-    lotQty.innerText = 1250
+    lotQty.innerText = ''
+    const sample = parseInt(sampleDisplay.innerText)
+   
+    if (aqlSelector.value == 0.010 && sample > 0 && sample <= 1200) {
+        lotQty.innerText = 'All'
+    } else if (aqlSelector.value == 0.010 && sample >= 1201) {
+        lotQty.innerText = '1250 muestras'
     } else if (aqlSelector.value == 0.015 && sample > 0 && sample <= 500) {
         lotQty.innerText = 'All'
     } else if (aqlSelector.value == 0.015 && sample >= 501 && sample <= 500000) {
         lotQty.innerText = 800 
-    }  else if (aqlSelector.value == 0.015 && sample >= 500001) {
+    } else if (aqlSelector.value == 0.015 && sample >= 500001) {
         lotQty.innerText = 1200
     } else if (aqlSelector.value == 0.025 && sample >= 2 && sample <= 500) {
         lotQty.innerText = 'All'
-    }  else if (aqlSelector.value == 0.025 && sample >= 501 && sample <= 150000) {
+    } else if (aqlSelector.value == 0.025 && sample >= 501 && sample <= 150000) {
         lotQty.innerText = 500
     } else if (aqlSelector.value == 0.025 && sample >= 150001 && sample <= 500000) {
         lotQty.innerText = 750
@@ -82,7 +80,7 @@ result.addEventListener('click', button => {
         lotQty.innerText = 1112
     } else if (aqlSelector.value == 0.040 && sample > 0 && sample <= 280) {
         lotQty.innerText = 'All'
-    }  else if (aqlSelector.value == 0.040 && sample >= 281 && sample <= 35000) {
+    } else if (aqlSelector.value == 0.040 && sample >= 281 && sample <= 35000) {
         lotQty.innerText = 315
     } else if (aqlSelector.value == 0.040 && sample >= 35001 && sample <= 150000) {
         lotQty.innerText = 490
@@ -97,33 +95,33 @@ result.addEventListener('click', button => {
     } else if (aqlSelector.value == 0.065 && sample >= 35001 && sample <= 500000) {
         lotQty.innerText = 476
     } else if (aqlSelector.value == 0.065 && sample >= 500001) {
-        lotQty.innerText = 556 
+        lotQty.innerText = 556
     } else if (aqlSelector.value == 0.10 && sample >= 2 && sample <= 90) {
-        lotQty.innerText = 'All' 
+        lotQty.innerText = 'All'
     } else if (aqlSelector.value == 0.10 && sample >= 91 && sample <= 3200) {
-        lotQty.innerText = 125 
+        lotQty.innerText = 125
     } else if (aqlSelector.value == 0.10 && sample >= 3201 && sample <= 10000) {
-        lotQty.innerText = 192 
+        lotQty.innerText = 192
     } else if (aqlSelector.value == 0.10 && sample >= 10001 && sample <= 150000) {
-        lotQty.innerText = 294 
+        lotQty.innerText = 294
     } else if (aqlSelector.value == 0.10 && sample >= 150001 && sample <= 500000) {
-        lotQty.innerText = 345 
+        lotQty.innerText = 345
     } else if (aqlSelector.value == 0.10 && sample >= 500001) {
-        lotQty.innerText = 435 
+        lotQty.innerText = 435
     } else if (aqlSelector.value == 0.15 && sample >= 2 && sample <= 50) {
-        lotQty.innerText = 'All' 
+        lotQty.innerText = 'All'
     } else if (aqlSelector.value == 0.15 && sample >= 51 && sample <= 1200) {
-        lotQty.innerText = 80 
+        lotQty.innerText = 80
     } else if (aqlSelector.value == 0.15 && sample >= 1201 && sample <= 3200) {
-        lotQty.innerText = 120 
+        lotQty.innerText = 120
     } else if (aqlSelector.value == 0.15 && sample >= 3201 && sample <= 35000) {
-        lotQty.innerText = 189 
+        lotQty.innerText = 189
     } else if (aqlSelector.value == 0.15 && sample >= 35001 && sample <= 150000) {
-        lotQty.innerText = 218 
+        lotQty.innerText = 218
     } else if (aqlSelector.value == 0.15 && sample >= 150001 && sample <= 500000) {
-        lotQty.innerText = 270 
+        lotQty.innerText = 270
     } else if (aqlSelector.value == 0.25 && sample >= 2 && sample <= 50) {
-        lotQty.innerText = 'All' 
+        lotQty.innerText = 'All'
     } else if (aqlSelector.value == 0.25 && sample >= 51 && sample <= 500) {
         lotQty.innerText = 50
     } else if (aqlSelector.value == 0.25 && sample >= 501 && sample <= 1200) {
@@ -136,10 +134,10 @@ result.addEventListener('click', button => {
         lotQty.innerText = 170
     } else if (aqlSelector.value == 0.25 && sample >= 150001 && sample <= 500000) {
         lotQty.innerText = 200
-    } else if (aqlSelector.value == 0.25 && sample >=  500001) {
+    } else if (aqlSelector.value == 0.25 && sample >= 500001) {
         lotQty.innerText = 244
     } else if (aqlSelector.value == 0.40 && sample >= 2 && sample <= 25) {
-        lotQty.innerText = 'All' 
+        lotQty.innerText = 'All'
     } else if (aqlSelector.value == 0.40 && sample >= 26 && sample <= 280) {
         lotQty.innerText = 32
     } else if (aqlSelector.value == 0.40 && sample >= 281 && sample <= 500) {
@@ -154,7 +152,7 @@ result.addEventListener('click', button => {
         lotQty.innerText = 123
     } else if (aqlSelector.value == 0.40 && sample >= 150001 && sample <= 500000) {
         lotQty.innerText = 156
-    } else if (aqlSelector.value == 0.40 && sample >=  500001) {
+    } else if (aqlSelector.value == 0.40 && sample >= 500001) {
         lotQty.innerText = 189
     } else if (aqlSelector.value == 0.65 && sample >= 2 && sample <= 15) {
         lotQty.innerText = 'All'
@@ -174,7 +172,7 @@ result.addEventListener('click', button => {
         lotQty.innerText = 96
     } else if (aqlSelector.value == 0.65 && sample >= 150001 && sample <= 500000) {
         lotQty.innerText = 119
-    } else if (aqlSelector.value == 0.65 && sample >=  500001) {
+    } else if (aqlSelector.value == 0.65 && sample >= 500001) {
         lotQty.innerText = 143
     } else if (aqlSelector.value == 1.0 && sample >= 2 && sample <= 8) {
         lotQty.innerText = 'All'
@@ -196,7 +194,7 @@ result.addEventListener('click', button => {
         lotQty.innerText = 74
     } else if (aqlSelector.value == 1.0 && sample >= 150001 && sample <= 500000) {
         lotQty.innerText = 90
-    } else if (aqlSelector.value == 1.0 && sample >=  500001) {
+    } else if (aqlSelector.value == 1.0 && sample >= 500001) {
         lotQty.innerText = 102
     } else if (aqlSelector.value == 1.5 && sample >= 2 && sample <= 8) {
         lotQty.innerText = 'All'
@@ -290,7 +288,7 @@ result.addEventListener('click', button => {
         lotQty.innerText = 8
     } else if (aqlSelector.value == 10.0 && sample >= 1201) {
         lotQty.innerText = 9
-    } 
+    }
 
-        calculator.updateDisplay()
-    })
+    calculator.updateDisplay()
+})

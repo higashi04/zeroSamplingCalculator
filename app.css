@@ -8,6 +8,7 @@ body {
     margin: 0;
     background: linear-gradient(to right, #35393C, #42858C);
 }
+
 .calculator-grid {
     display: grid;
     justify-content: center;
@@ -40,6 +41,15 @@ body {
     word-wrap: break-word;
     word-break: break-all;
 }
+
+.sizeInputText {
+    font-weight: 100;
+    color: white;
+    font-size: 1.5rem;
+    justify-content: flex-start;
+    align-self: start;
+}
+
 .user-input, .sample-size{
     font-weight: 100;
     color: white;
@@ -55,5 +65,9 @@ body {
 .selector select {
     padding: 40px 68px 37px 62px;
     font-size: 1rem;
+    font-weight: 200;
+}
+
+svg {
     font-weight: 200;
 }
