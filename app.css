@@ -45,7 +45,7 @@ body {
 .sizeInputText {
     font-weight: 100;
     color: white;
-    font-size: 1.5rem;
+    font-size: 2rem;
     justify-content: flex-start;
     align-self: start;
 }
@@ -65,9 +65,5 @@ body {
 .selector select {
     padding: 40px 68px 37px 62px;
     font-size: 1rem;
-    font-weight: 200;
-}
-
-svg {
     font-weight: 200;
 }
